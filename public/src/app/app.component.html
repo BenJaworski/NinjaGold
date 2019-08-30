@@ -1,0 +1,40 @@
+<div *ngIf="gameOn == false">
+  <h1>Ninja Gold!</h1>
+  <button *ngIf="end == false" (click)="startNew()">Start a Game</button>
+  <button *ngIf="end == true" (click)="startNew()">Play Again?</button>
+</div>
+<div *ngIf="end == true">
+    <h1>Congrats you finished!</h1>
+    <h3>Your total gold was: {{gold}}</h3>
+  </div>
+<div *ngIf="gameOn" class="container">
+  <h3>Gold: {{gold}} </h3>
+  <h3>Turn: {{turn}}</h3>
+  <div class="money">
+      <h1>Farm</h1>
+      <p>(Earns 10-20 gold)</p>
+      <button (click)="farmGold()">Explore!</button>
+  </div>
+  <div class="money">
+    <h1>Cave</h1>
+    <p>(Earns 5-10 gold)</p>
+    <button (click)="caveGold()">Explore!</button>
+  </div>
+  <div class="money">
+    <h1>House</h1>
+    <p>(Earns 2-5 gold)</p>
+    <button (click)="houseGold()">Search!</button>
+  </div>
+  <div class="money">
+    <h1>Casino</h1>
+    <p>(Earns/takes 0-50 gold)</p>
+    <button (click)="casinoGold()">Gamble!</button>
+  </div>
+  <div>
+    <h3>Activity:</h3>
+    <h4 *ngFor="let x of activity">{{x}}</h4>
+  </div>
+</div>
+
+
+<router-outlet></router-outlet>

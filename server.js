@@ -1,0 +1,11 @@
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+const path = require('path');
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/NinjaGold_DB');
+app.use(express.static(path.join(__dirname, './public/dist/public')));
+app.set('views', path.join(__dirname, './views'));
+app.set('view engine', 'ejs');
+app.listen(8000);
